@@ -3,11 +3,11 @@ package com.luchito.capitulo1.beans;
 public class DocumentoExcel implements Imprimible{
 
 	public void iniciar() {
-		System.out.println("Iniciando la construcción del bean");
+		System.out.println("Iniciando la construcción del bean de EXCEL");
 	}
 	
 	public void destruir() {
-		System.out.println("Destruyendo la instancia creada");
+		System.out.println("Destruyendo la instancia creada de EXCEL");
 	}
 	
 	@Override

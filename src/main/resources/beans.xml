@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="iniciar" default-destroy-method="destruir" default-lazy-init="true">
 		
 		<!-- POR DEFECTO EL AMBITO ESTA EN SINGLETON  -->
 		<!-- <bean id="holaMundoBean" class="com.luchito.capitulo1.beans.HolaMundo" scope="prototype"> -->
-		<bean id="holaMundoBean" class="com.luchito.capitulo1.beans.HolaMundo" scope="prototype">
+		<bean id="holaMundoBean" class="com.luchito.capitulo1.beans.HolaMundo" scope="singleton">
 			<property name="nombre" value="cambiando el valor desde el archivo de configuracion de BEANS"/>
 		</bean>
 		
@@ -15,8 +16,11 @@
 			<!-- inyeccion por constructor -->
 			<constructor-arg ref="documentoPDF" />
 		</bean>	
-		<bean id="documentoExcel" class="com.luchito.capitulo1.beans.DocumentoExcel"
-		init-method="iniciar" destroy-method="destruir"/>
+		<!-- ACCION PERSONALIZADA <bean id="documentoExcel" class="com.luchito.capitulo1.beans.DocumentoExcel"
+		init-method="iniciar" destroy-method="destruir"/> -->
+		<!-- TIPO DE INICIALIZACION PERSONALIZADA LAZY-INIT <bean id="documentoExcel" class="com.luchito.capitulo1.beans.DocumentoExcel"
+		init-method="iniciar" destroy-method="destruir" lazy-init="true"/> -->
+		<bean id="documentoExcel" class="com.luchito.capitulo1.beans.DocumentoExcel"/>
 		<bean id="documentoTexto" class="com.luchito.capitulo1.beans.DocumentoTexto" />
 		<bean id="documentoPDF" class="com.luchito.capitulo1.beans.DocumentoPDF"/>
 				
